@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Mariza 💜💗</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at bottom, #1b1b3a, #000);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/* Estrelas */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, white, transparent),
+    radial-gradient(1px 1px at 30% 80%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(1px 1px at 90% 60%, white, transparent);
+  background-size: 200px 200px;
+  animation: estrelas 12s linear infinite;
+  z-index: 0;
+}
+
+@keyframes estrelas {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+}
+
+/* Lua realista */
+.lua {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  height: 550px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg") no-repeat center/cover;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 150px rgba(255,255,255,0.6);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* Conteúdo */
+.conteudo {
+  position: relative;
+  z-index: 2;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  background: linear-gradient(270deg, purple, pink);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nome 3s infinite alternate;
+}
+
+@keyframes nome {
+  from { background-position: 0%; }
+  to { background-position: 100%; }
+}
+
+p {
+  max-width: 850px;
+  margin: auto;
+  font-size: 1.35em;
+  line-height: 1.6;
+}
+
+/* Tela de senha */
+#senhaBox {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 10;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.1em;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 1.1em;
+  border-radius: 20px;
+  border: none;
+  background: pink;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="senhaBox">
+  <h2>💖 Digite a senha 💖</h2>
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="entrar()">Entrar</button>
+</div>
+
+<!-- LUA -->
+<div class="lua"></div>
+
+<!-- CONTEÚDO -->
+<div class="conteudo" id="conteudo" style="display:none;">
+  <h1>Mariza</h1>
+
+  <p>
+    te amo muito minha gatinha, isso foi só pra descontrair msm e reforçar que sou mt bobo por vc,
+    e que eu quero voce na minha vida, que quero ser uma experiência boa.
+    Quero que voce sinta td meu amor por vc, te fazer feliz vai ser a melhor missão
+    que vou fzr questão de repetir tds os dias, te amo cada dia mais.
+    <br><br>
+    No nosso tempinho, do nosso jeitinho, vamos fazer tudo acontecer.
+    Espero que seja você e com você os meus próximos dias felizes.
+    <br><br>
+    <strong>(ao seu lado)</strong><br>
+    te amo neném 💕
+  </p>
+</div>
+
+<!-- MÚSICA (Outro Plano) -->
+<audio id="musica" loop>
+  <source src="outro-plano.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function entrar() {
+  const senha = document.getElementById("senha").value;
+  if (senha === "gatinha") {
+    document.getElementById("senhaBox").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+    document.getElementById("musica").play();
+  } else {
+    alert("Senha incorreta 😢");
+  }
+}
+</script>
+
+</body>
+</html>
