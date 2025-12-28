@@ -5,12 +5,7 @@
 <title>Para Mariza 💜💗</title>
 
 <style>
-/* Reset */
-* {
-  box-sizing: border-box;
-}
-
-/* Fundo Universo */
+/* ===== CONFIGURAÇÃO GERAL ===== */
 body {
   margin: 0;
   min-height: 100vh;
@@ -18,54 +13,123 @@ body {
   color: white;
   text-align: center;
   background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1920&auto=format&fit=crop") 
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=1920&q=80")
     no-repeat center center fixed;
   background-size: cover;
 }
 
-/* Conteúdo */
-.conteudo {
-  position: relative;
-  z-index: 2;
-  padding: 40px 20px;
+/* ===== TELA DE SENHA ===== */
+#senhaBox {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+    url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=1920&q=80")
+    no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#senhaBox h2 {
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.1em;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 30px;
+  font-size: 1.1em;
+  border-radius: 20px;
+  border: none;
+  background: pink;
+  cursor: pointer;
+}
+
+/* ===== CONTEÚDO ===== */
+#conteudo {
+  display: none;
+  padding: 50px 20px;
 }
 
 /* Nome Mariza */
 h1 {
   font-size: 3.5em;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   background: linear-gradient(270deg, purple, pink);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: nome 3s infinite alternate;
+  animation: cores 3s infinite alternate;
 }
 
-@keyframes nome {
+@keyframes cores {
   from { background-position: 0%; }
   to { background-position: 100%; }
 }
 
 /* Texto */
 p {
-  max-width: 850px;
+  max-width: 900px;
   margin: auto;
   font-size: 1.35em;
   line-height: 1.6;
-  background: rgba(0,0,0,0.35);
-  padding: 25px;
+  background: rgba(0,0,0,0.45);
+  padding: 30px;
   border-radius: 20px;
 }
+</style>
+</head>
 
-/* Tela de senha */
-#senhaBox {
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-    url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1920&auto=format&fit=crop")
-    no-repeat center center;
-  background-size: cover;
-  display: flex;
-  align
+<body>
+
+<!-- ===== TELA DE SENHA ===== -->
+<div id="senhaBox">
+  <h2>💖 Digite a senha 💖</h2>
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="entrar()">Entrar</button>
+</div>
+
+<!-- ===== CONTEÚDO DO SITE ===== -->
+<div id="conteudo">
+  <h1>Mariza</h1>
+
+  <p>
+    te amo muito minha gatinha, isso foi só pra descontrair msm e reforçar que sou mt bobo por vc,
+    e que eu quero voce na minha vida, que quero ser uma experiência boa.
+    Quero que voce sinta td meu amor por vc, te fazer feliz vai ser a melhor missão
+    que vou fzr questão de repetir tds os dias, te amo cada dia mais.
+    <br><br>
+    No nosso tempinho, do nosso jeitinho, vamos fazer tudo acontecer.
+    Espero que seja você e com você os meus próximos dias felizes.
+    <br><br>
+    <strong>(ao seu lado)</strong><br>
+    te amo neném 💕
+  </p>
+</div>
+
+<script>
+function entrar() {
+  const senhaDigitada = document.getElementById("senha").value;
+  if (senhaDigitada === "gatinha") {
+    document.getElementById("senhaBox").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+  } else {
+    alert("Senha incorreta 😢");
+  }
+}
+</script>
+
+</body>
+</html>
